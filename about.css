@@ -1,0 +1,96 @@
+/* ===================================================================
+   ABOUT SECTION
+   =================================================================== */
+
+.about-section {
+    position: relative;
+    padding: 60px 20px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+}
+.about-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+    align-items: center;
+}
+.about-visual {
+    position: relative;
+    height: 360px;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(17,24,39,0.08);
+    background: linear-gradient(135deg, #f7f9fc 0%, #eef6ff 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.about-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This makes the image cover the container */
+    object-position: center; /* Center the image within the frame */
+    filter: contrast(1.02) saturate(1.02);
+    transition: transform .9s ease;
+}
+.about-visual:hover img { transform: scale(1.05); }
+.shape-decor {
+    position: absolute;
+    right: -6%;
+    top: -8%;
+    width: 240px;
+    height: 240px;
+    opacity: .12;
+    filter: blur(8px);
+}
+.about-content h2 {
+    font-size: 2rem;
+    margin: 0 0 10px;
+    line-height: 1.05;
+}
+.about-content p.lead {
+    color: #555;
+    margin: 0 0 18px;
+}
+.about-features {
+    display:flex;
+    gap:12px;
+    margin-top: 18px;
+    flex-wrap:wrap;
+}
+.feature {
+    display:flex;
+    gap:12px;
+    align-items:center;
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px 12px;
+    box-shadow: 0 6px 18px rgba(17,24,39,0.04);
+    min-width: calc(50% - 6px);
+}
+.feature svg { width:28px; height:28px; flex:0 0 28px; }
+.feature h4 { font-size:0.95rem; margin:0; }
+.about-stats {
+    margin-top:20px;
+    display:flex;
+    gap:18px;
+    align-items:center;
+    flex-wrap:wrap;
+}
+.stat {
+    background: linear-gradient(180deg, #ffffff 0%, #fafbff 100%);
+    border-radius:10px;
+    padding:14px 16px;
+    box-shadow: 0 6px 16px rgba(17,24,39,0.03);
+    min-width:110px;
+    text-align:center;
+}
+.stat .num { font-weight:700; font-size:1.1rem; color:#111827; }
+.stat .label { font-size:0.8rem; color:#6b7280; }
+@media (max-width:860px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .about-visual { height:280px; }
+    .feature { min-width: 100%; }
+}

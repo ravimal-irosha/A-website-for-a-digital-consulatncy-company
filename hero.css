@@ -1,0 +1,99 @@
+/* ===================================================================
+   HERO SECTION (HOME)
+   =================================================================== */
+
+.hero-section {
+    position: relative;
+    /* Updated calculation to match new 87px header */
+    height: calc(100vh - 87px);
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    color: white;
+    overflow: hidden; /* Contain the scaled background */
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('84770f_994ffe746a074d1f8a2ec9456a8bf1ff~mv2.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    /* Start at a slightly larger scale and transition smoothly */
+    transform: scale(1.05);
+    transition: transform 2s ease-out;
+}
+
+.hero-section.scrolled .hero-background {
+    transform: scale(1); /* Scale down to normal when scrolled */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin-left: 40px;
+    /* Start hidden for the fade-in effect */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 2s cubic-bezier(.2,.9,.2,1), transform 2s cubic-bezier(.2,.9,.2,1);
+}
+
+/* When the element gets the .in-view class it fades up into place */
+.hero-content.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .hero-content {
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    margin: 0 0 20px 0;
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    margin: 0 0 30px 0;
+    opacity: 0.9;
+    text-align: left;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    border-radius: 30px;
+    transition: transform 0.3s ease;
+}
+.btn-primary:hover {
+    transform: translateY(-3px);
+}
