@@ -11,7 +11,10 @@ $user = 'root';
 $port = '3306';
 
 // Ensure the dynamic variables are present.
-if (!$host || !$dbname || !$password) {
+if (!$host || !$dbname || !$password)     
+{MYSQLHOST={{MySQL-MlSY.MYSQLHOST}}
+MYSQLDATABASE={{MySQL-MlSY.MYSQLDATABASE}}
+MYSQLPASSWORD={{MySQL-MlSY.MYSQLPASSWORD}}
     die('Service is not configured correctly. Missing critical database environment variables (host, dbname, password).');
 }
 
