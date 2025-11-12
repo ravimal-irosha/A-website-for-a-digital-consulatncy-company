@@ -74,6 +74,7 @@
         const today = new Date().toISOString().split('T')[0];
         datePicker.setAttribute('min', today);
 
+        // --- 1. Fetch Available Time Slots ---
         datePicker.addEventListener('change', function() {
             const selectedDate = new Date(this.value);
             const day = selectedDate.getUTCDay(); // Sunday = 0, Monday = 1, ...
@@ -84,46 +85,51 @@
             selectedTimeInput.value = '';
 
             if (day === 0) { // If Sunday
-                timeSlotsGrid.innerHTML = '<p style="color: red;">Sorry, we are closed on Sundays. Please select another date.</p>';
+                timeSlotsGrid.innerHTML = '<p class="error-message">Sorry, we are closed on Sundays. Please select another date.</p>';
                 return;
             }
 
             // Fetch available slots from the server
             fetch(`get_available_slots.php?date=${this.value}`)
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok. Could not connect to the server.');
+                    }
+                    return response.json();
+                })
                 .then(slots => {
-                    timeSlotsGrid.innerHTML = '';
+                    timeSlotsGrid.innerHTML = ''; // Clear loading message
                     if (slots.length > 0) {
                         slots.forEach(slot => {
                             const slotElement = document.createElement('div');
                             slotElement.classList.add('time-slot');
                             slotElement.textContent = slot;
-                            slotElement.dataset.time = slot;
                             slotElement.addEventListener('click', function() {
-                                // Remove 'selected' from any previously selected slot
-                                const currentlySelected = timeSlotsGrid.querySelector('.selected');
-                                if (currentlySelected) {
-                                    currentlySelected.classList.remove('selected');
-                                }
-                                // Add 'selected' to the clicked slot
+                                // Handle time slot selection
+                                document.querySelectorAll('.time-slot').forEach(el => el.classList.remove('selected'));
                                 this.classList.add('selected');
-                                selectedTimeInput.value = this.dataset.time;
-                                detailsStep.style.display = 'block';
+                                selectedTimeInput.value = this.textContent;
+                                detailsStep.style.display = 'block'; // Show details form
                             });
                             timeSlotsGrid.appendChild(slotElement);
                         });
                     } else {
-                        timeSlotsGrid.innerHTML = '<p>No available slots for this day. Please try another date.</p>';
+                        timeSlotsGrid.innerHTML = '<p>No available time slots for this date. Please try another day.</p>';
                     }
                 })
                 .catch(error => {
-                    console.error('Error fetching time slots:', error);
-                    timeSlotsGrid.innerHTML = '<p style="color: red;">Could not load time slots. Please try again.</p>';
+                    console.error('Fetch Error:', error);
+                    timeSlotsGrid.innerHTML = '<p class="error-message">Could not load time slots. Please try again.</p>';
                 });
         });
 
-        bookingForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Prevent default form submission
+        // --- 2. Handle Form Submission ---
+        bookingForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Stop the default form submission
+
+            const submitButton = this.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.textContent = 'Booking...';
 
             const formData = new FormData(this);
 
@@ -134,15 +140,21 @@
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
+                    // On success, hide the form and show the confirmation message
                     bookingFormContainer.style.display = 'none';
                     confirmationMessage.style.display = 'block';
                 } else {
-                    alert('Booking failed: ' + data.message);
+                    // On failure, show an alert and re-enable the button
+                    alert(data.message || 'An unknown error occurred. Please try again.');
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Confirm Appointment';
                 }
             })
             .catch(error => {
-                console.error('Error submitting form:', error);
-                alert('An error occurred. Please try again.');
+                console.error('Submission Error:', error);
+                alert('A network error occurred. Could not submit your appointment.');
+                submitButton.disabled = false;
+                submitButton.textContent = 'Confirm Appointment';
             });
         });
     });
