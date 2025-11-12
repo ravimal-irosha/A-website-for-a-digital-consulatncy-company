@@ -1,42 +1,31 @@
 <?php
-// --- DATABASE CONNECTION ---
+// --- DATABASE CONNECTION (Railway) ---
 
-// Prefer environment variables (Railway/Render). Supports both custom names and Railway defaults.
-$envHost = getenv('DB_HOST') ?: getenv('MYSQLHOST');
-$envPort = getenv('DB_PORT') ?: getenv('MYSQLPORT') ?: '3306';
-$envName = getenv('DB_NAME') ?: getenv('MYSQLDATABASE');
-$envUser = getenv('DB_USER') ?: getenv('MYSQLUSER');
-$envPass = getenv('DB_PASS') ?: getenv('MYSQLPASSWORD');
+// Read environment variables for the database connection.
+// Supports both custom DB_* variables and Railway's default MYSQL* variables.
+$host = getenv('DB_HOST') ?: getenv('MYSQLHOST');
+$port = getenv('DB_PORT') ?: getenv('MYSQLPORT');
+$dbname = getenv('DB_NAME') ?: getenv('MYSQLDATABASE');
+$user = getenv('DB_USER') ?: getenv('MYSQLUSER');
+$password = getenv('DB_PASS') ?: getenv('MYSQLPASSWORD');
 
-if ($envHost && $envName && $envUser) {
-    $conn = new mysqli($envHost, $envUser, $envPass, $envName, (int)$envPort);
-} else {
-    // Fallback to Platform.sh / Upsun relationship variables
-    $relationships = getenv('PLATFORM_RELATIONSHIPS');
-
-    if ($relationships) {
-        $relationshipsDecoded = json_decode(base64_decode($relationships), true);
-
-        if (isset($relationshipsDecoded['database'][0])) {
-            $databaseInfo = $relationshipsDecoded['database'][0];
-
-            $dbHost = $databaseInfo['host'];
-            $dbPort = $databaseInfo['port'];
-            $dbName = $databaseInfo['path'];
-            $dbUser = $databaseInfo['username'];
-            $dbPass = $databaseInfo['password'];
-
-            $conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName, (int)$dbPort);
-        } else {
-            die('Database relationship not found in Platform.sh environment.');
-        }
-    } else {
-        // Local development (XAMPP) fallback
-        $conn = new mysqli('localhost', 'root', '1234@', 'webprojects2');
-    }
+// Ensure all required variables are present before attempting connection.
+if (!$host || !$dbname || !$user || !$password || !$port) {
+    // Log detailed error for debugging on Railway.
+    error_log('Database environment variables are not fully set.');
+    // Provide a generic error to the client.
+    die('Service is not configured correctly. Please contact support.');
 }
 
+// Establish the database connection.
+// The error suppression operator (@) prevents default warnings from being displayed to the user.
+$conn = @new mysqli($host, $user, $password, $dbname, (int)$port);
+
+// Check for connection errors and provide a clean error message.
 if ($conn->connect_error) {
-    die('Connection failed: ' . $conn->connect_error);
+    // Log the actual error for debugging.
+    error_log('MySQL Connection Error: ' . $conn->connect_error);
+    // Show a generic message to the user.
+    die('Failed to connect to the database. Please try again later.');
 }
 ?>
