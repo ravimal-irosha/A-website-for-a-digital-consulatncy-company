@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BizBud - Modern Furniture</title>
+    <title>BizBud - Business Consulting</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,24 +41,30 @@
             <div class="services-grid scroll-animate">
                 <div class="service-item">
                     <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 100 15 7.5 7.5 0 000-15zM21 21l-5.2-5.2" />
+                        </svg>
                     </div>
-                    <h3>Interior Design</h3>
-                    <p>Expert consultation to create your perfect space.</p>
+                    <h3>Strategic Planning</h3>
+                    <p>Developing actionable roadmaps for sustainable growth.</p>
                 </div>
                 <div class="service-item">
                     <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" />
+                        </svg>
                     </div>
-                    <h3>Custom Orders</h3>
-                    <p>Furniture tailored to your exact specifications.</p>
+                    <h3>Market Analysis</h3>
+                    <p>In-depth research to identify opportunities and risks.</p>
                 </div>
                 <div class="service-item">
                     <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                        </svg>
                     </div>
-                    <h3>Fast Delivery</h3>
-                    <p>White-glove delivery service to your door.</p>
+                    <h3>Operational Efficiency</h3>
+                    <p>Streamlining processes to boost productivity and profit.</p>
                 </div>
             </div>
         </div>
@@ -109,51 +115,46 @@
                         <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#a5b4fc"/><stop offset="1" stop-color="#60a5fa"/></linearGradient></defs>
                         <path fill="url(#g)" d="M48.6,-61.8C63.2,-51.3,76.2,-37.4,83.6,-20.8C91.1,-4.1,92.9,15.2,84.4,28.3C75.9,41.4,57.9,48.4,40.2,53.2C22.5,58,5.1,60.6,-11.3,61.2C-27.7,61.7,-44.1,60.1,-55.2,50.6C-66.3,41.1,-72.1,23.7,-72.4,6.5C-72.6,-10.8,-67.3,-27.8,-57,-40C-46.6,-52.2,-31.3,-59.5,-15.2,-66.6C0.8,-73.7,17.6,-80.4,33.9,-73.1C50.2,-65.8,37.2,-72.4,48.6,-61.8Z" transform="translate(100 100)"/>
                     </svg>
-
-                    <!-- sample product image -->
-                    <img src="markus-spiske-3Wq2HI5mTaI-unsplash.jpg" alt="Showroom interior image">
                 </div>
 
                 <div class="about-content scroll-animate">
                     <h2>About Us</h2>
-                    <p class="lead">We craft modern furniture that balances form and function. From concept to delivery, every piece is designed with attention to detail and built to last.</p>
+                    <p class="lead">We are a results-driven consulting firm dedicated to helping businesses navigate complexity and achieve their strategic goals. Our team of experts provides actionable insights and tailored solutions.</p>
 
                     <div class="about-features">
                         <div class="feature">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M3 21v-7a4 4 0 014-4h10a4 4 0 014 4v7"/>
-                                <path d="M7 10V6a5 5 0 0110 0v4"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2563eb">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
                             </svg>
                             <div>
-                                <h4>Premium Materials</h4>
-                                <small>Durable & timeless</small>
+                                <h4>Data-Driven Insights</h4>
+                                <small>Actionable intelligence</small>
                             </div>
                         </div>
 
                         <div class="feature">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21 10v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6"/>
-                                <path d="M7 10V6a5 5 0 0110 0v4"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#f59e0b">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
                             </svg>
                             <div>
-                                <h4>Custom Design</h4>
-                                <small>Bespoke solutions</small>
+                                <h4>Customized Strategies</h4>
+                                <small>Solutions tailored to you</small>
                             </div>
                         </div>
                     </div>
 
                     <div class="about-stats" aria-hidden="true">
                         <div class="stat">
-                            <div class="num">12k+</div>
+                            <div class="num">500+</div>
                             <div class="label">Happy Clients</div>
                         </div>
                         <div class="stat">
-                            <div class="num">250+</div>
-                            <div class="label">Designs Available</div>
+                            <div class="num">1200+</div>
+                            <div class="label">Projects Completed</div>
                         </div>
                         <div class="stat">
-                            <div class="num">5 yrs</div>
-                            <div class="label">Average Warranty</div>
+                            <div class="num">35%</div>
+                            <div class="label">Avg. Client Growth</div>
                         </div>
                     </div>
                 </div>
@@ -166,16 +167,16 @@
             <h2 class="section-title">Client Stories</h2>
             <div class="testimonial-slider">
                 <div class="testimonial-item">
-                    <p class="testimonial-text">"The design team at BizBud transformed our living room into a modern oasis. Their attention to detail and commitment to quality is unmatched. We couldn't be happier with the result!"</p>
-                    <div class="testimonial-author">- Alex & Jamie</div>
+                    <p class="testimonial-text">"The strategic insights from BizBud were a game-changer. Our revenue increased by 40% in the first year alone. Their team is professional, data-driven, and truly invested in our success."</p>
+                    <div class="testimonial-author">- CEO, Tech Innovators Inc.</div>
                 </div>
                 <div class="testimonial-item">
-                    <p class="testimonial-text">"From the initial consultation to the final delivery, the process was seamless. The custom-ordered dining table is a work of art and the centerpiece of our home."</p>
-                    <div class="testimonial-author">- Sarah L.</div>
+                    <p class="testimonial-text">"Working with BizBud streamlined our operations and uncovered efficiencies we never thought possible. The impact on our bottom line was immediate and significant. Highly recommended."</p>
+                    <div class="testimonial-author">- COO, Global Logistics Co.</div>
                 </div>
                 <div class="testimonial-item">
-                    <p class="testimonial-text">"Fast, professional, and the furniture is absolutely stunning. The white-glove delivery service was the cherry on top. Highly recommend BizBud for any modern furniture needs."</p>
-                    <div class="testimonial-author">- Mark T.</div>
+                    <p class="testimonial-text">"Their market analysis was incredibly thorough and gave us the confidence to enter a new vertical. The launch was a massive success, and we owe a great deal of that to BizBud's guidance."</p>
+                    <div class="testimonial-author">- Founder, ScaleUp SaaS</div>
                 </div>
             </div>
         </div>
